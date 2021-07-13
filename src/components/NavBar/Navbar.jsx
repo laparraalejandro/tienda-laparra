@@ -1,7 +1,10 @@
 import React from "react";
-import { Navbar, Nav, Container, Button } from 'react-bootstrap';
+import { Route, Switch, Link } from 'react-router-dom';
+
 import CartIcon from "../CartIcon/CartIcon";
-import { Route, Switch } from 'react-router-dom';
+
+import { Navbar, Nav, Container, Button } from 'react-bootstrap';
+
 
 
 const NavBar = (props) => {
@@ -11,10 +14,12 @@ const NavBar = (props) => {
         <Container>
           <Navbar.Toggle aria-controls='responsive-navbar-nav' />
           <Navbar.Collapse id='responsive-navbar-nav'>
-            <Navbar.Brand href="#home">{props.nombreDeLaTienda}</Navbar.Brand>
+            <Link to={'/'}>
+              <Navbar.Brand href="#home">{props.nombreDeLaTienda}</Navbar.Brand>
+            </Link>
             <Nav className="mr-auto">
               {props.categorias.map((categoria) =>
-                <Nav.Link href={"#" + categoria}>{categoria}</Nav.Link>
+                <Nav.Link href={"#" + categoria.name}>{categoria.name}</Nav.Link>
               )};
             </Nav>
           </Navbar.Collapse>

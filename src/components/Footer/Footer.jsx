@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Card } from 'react-bootstrap';
 import { GitHub, LinkedIn } from "@material-ui/icons";
 import "./Footer.scss";
