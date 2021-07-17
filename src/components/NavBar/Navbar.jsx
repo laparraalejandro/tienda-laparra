@@ -1,5 +1,6 @@
 import React from "react";
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch, Link, NavLink } from 'react-router-dom';
+import {LinkContainer} from 'react-router-bootstrap'
 
 import CartIcon from "../CartIcon/CartIcon";
 
@@ -18,8 +19,10 @@ const NavBar = (props) => {
               <Navbar.Brand href="#home">{props.nombreDeLaTienda}</Navbar.Brand>
             </Link>
             <Nav className="mr-auto">
-              {props.categorias.map((categoria) =>
-                <Nav.Link href={"#" + categoria.name}>{categoria.name}</Nav.Link>
+              {props.categorias.map((cat) =>
+                <LinkContainer to={`/category/${cat.id}`} key={cat.id}>
+                  <Nav.Link >{cat.name}</Nav.Link>
+                </LinkContainer>
               )};
             </Nav>
           </Navbar.Collapse>

@@ -24,8 +24,7 @@ const ItemDetailContainer = ({ItemList}) => {
         });
     };
 
-    useEffect(
-        ()=>{
+    useEffect(()=>{
             setItemToDisplay();
             getSelectedItem().then((result)=>setItemToDisplay(result));
         },

@@ -9,11 +9,11 @@
       "model": "marathon 2021",
       "gender": "hombre",
       "img": [
-        "./img/zapatilla-nike-h-1.webp",
-        "./img/zapatilla-nike-h-2.webp",
-        "./img/zapatilla-nike-h-3.webp",
-        "./img/zapatilla-nike-h-4.webp",
-        "./img/zapatilla-nike-h-5.webp"
+        "/img/zapatilla-nike-h-1.webp",
+        "/img/zapatilla-nike-h-2.webp",
+        "/img/zapatilla-nike-h-3.webp",
+        "/img/zapatilla-nike-h-4.webp",
+        "/img/zapatilla-nike-h-5.webp"
       ],
       "category": [
         "2",
@@ -31,11 +31,11 @@
       "model": "coleccion summer 2022",
       "gender": "hombre",
       "img": [
-        "./img/remera-adidas-h-1.webp",
-        "./img/remera-adidas-h-2.webp",
-        "./img/remera-adidas-h-3.webp",
-        "./img/remera-adidas-h-4.webp",
-        "./img/remera-adidas-h-5.webp"
+        "/img/remera-adidas-h-1.webp",
+        "/img/remera-adidas-h-2.webp",
+        "/img/remera-adidas-h-3.webp",
+        "/img/remera-adidas-h-4.webp",
+        "/img/remera-adidas-h-5.webp"
       ],
       "category": [
         "2"
@@ -52,10 +52,10 @@
       "model": "gym",
       "gender": "mujer",
       "img": [
-        "./img/joggers-adidas-m-1.webp",
-        "./img/joggers-adidas-m-2.webp",
-        "./img/joggers-adidas-m-3.webp",
-        "./img/joggers-adidas-m-4.webp"
+        "/img/joggers-adidas-m-1.webp",
+        "/img/joggers-adidas-m-2.webp",
+        "/img/joggers-adidas-m-3.webp",
+        "/img/joggers-adidas-m-4.webp"
       ],
       "category": [
         "1"
@@ -72,9 +72,9 @@
       "model": "coleccion verano 2021",
       "gender": "hombre",
       "img": [
-        "./img/pantalonrunning-adidas-h-1.webp",
-        "./img/pantalonrunning-adidas-h-2.webp",
-        "./img/pantalonrunning-adidas-h-3.webp"
+        "/img/pantalonrunning-adidas-h-1.webp",
+        "/img/pantalonrunning-adidas-h-2.webp",
+        "/img/pantalonrunning-adidas-h-3.webp"
       ],
       "category": [
         "2"
@@ -91,9 +91,9 @@
       "model": "marathon XXI",
       "gender": "hombre",
       "img": [
-        "./img/miller-nike-h-1.webp",
-        "./img/miller-nike-h-2.webp",
-        "./img/miller-nike-h-3.webp"
+        "/img/miller-nike-h-1.webp",
+        "/img/miller-nike-h-2.webp",
+        "/img/miller-nike-h-3.webp"
       ],
       "category": [
         "2"
@@ -110,9 +110,9 @@
       "model": "",
       "gender": "",
       "img": [
-        "./img/mancuerna-gforce-u-1.webp",
-        "./img/mancuerna-gforce-u-2.webp",
-        "./img/mancuerna-gforce-u-3.webp"
+        "/img/mancuerna-gforce-u-1.webp",
+        "/img/mancuerna-gforce-u-2.webp",
+        "/img/mancuerna-gforce-u-3.webp"
       ],
       "category": [
         "4"
@@ -129,9 +129,9 @@
       "model": "forever young",
       "gender": "mujer",
       "img": [
-        "./img/zapatilla-adidas-m-1.webp",
-        "./img/zapatilla-adidas-m-2.webp",
-        "./img/zapatilla-adidas-m-3.webp"
+        "/img/zapatilla-adidas-m-1.webp",
+        "/img/zapatilla-adidas-m-2.webp",
+        "/img/zapatilla-adidas-m-3.webp"
       ],
       "category": [
         "1",
@@ -149,9 +149,9 @@
       "model": "NYC collection",
       "gender": "",
       "img": [
-        "./img/gorra-ny-u-1.webp",
-        "./img/gorra-ny-u-2.webp",
-        "./img/gorra-ny-u-3.webp"
+        "/img/gorra-ny-u-1.webp",
+        "/img/gorra-ny-u-2.webp",
+        "/img/gorra-ny-u-3.webp"
       ],
       "category": [
         "1",

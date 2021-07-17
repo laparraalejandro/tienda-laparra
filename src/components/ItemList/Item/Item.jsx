@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 import { Card, Button } from 'react-bootstrap';
 
@@ -14,8 +15,8 @@ const Item = ({ item }) => {
     return (
         <>
             <Card style={{ width: '18rem' }}>
-                <Link to={'/item/'+item.id}>
-                <Card.Img variant="top" src={item.img[0] } />
+                <Link to={`/item/${item.id}`}>
+                <Card.Img variant="top" src={window.location.origin +item.img[0] } />
                 </Link>
                 <Card.Body>
                     <Card.Title>{item.name+" "+item.brand}</Card.Title>

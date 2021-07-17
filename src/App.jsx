@@ -37,6 +37,9 @@ function App() {
             <Route exact path="/">
               <ItemListContainer greeting="bienvenido" ItemList={Data.itemsArray}/>
             </Route>
+            <Route path="/category/:id">
+              <ItemListContainer greeting="bienvenido" ItemList={Data.itemsArray}/>
+            </Route>
             <Route path="/item/:id">
               <ItemDetailContainer ItemList={Data.itemsArray}/>
             </Route>
