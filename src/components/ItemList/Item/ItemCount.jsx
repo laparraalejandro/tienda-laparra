@@ -1,39 +1,42 @@
 import React, { useState, useEffect } from "react";
+
 import RemoveIcon from "@material-ui/icons/Remove";
 import AddIcon from "@material-ui/icons/Add";
-
 import "./ItemCount.scss";
 
-const ItemCount = ({ initial, min, max, unPrice }) => {
-  const [counter, setCounter] = useState(initial);
+
+
+const ItemCount = ({ initial, stock, count, setCount, unPrice }) => {
 
   const handleIncrement = () => {
-    counter < max ? setCounter(counter + 1) : console.log("Máximo alcanzado");
+    count < stock ? setCount(count + 1) : console.log("Máximo alcanzado");
   };
 
   const handleDecrement = () => {
-    counter > min ? setCounter(counter - 1) : console.log("Mínimo alcanzado");
+    count > initial ? setCount(count - 1) : console.log("Mínimo alcanzado");
   };
 
   return (
     <div className="counter" style={{ width: "15rem" }}>
       <div className="counter__content">
         <div className="counter__content-controls d-flex">
-          <span>Su pedido: &nbsp;&nbsp;&nbsp;   </span>   
-          <span
-            className="counter__content-controls-subtract"
-            onClick={handleDecrement}
+            
+          <button
+            className="btn btn-outline-secondary btn-sm btn__counter"
+            onClick = {handleDecrement}
+            disabled = {count == initial}
           >
             <RemoveIcon />
-          </span>
-          <span className="counter__content-controls-value"> {counter} </span>
-          <span
-            className="counter__content-controls-add"
+          </button>
+          <span className="counter__content-controls-value"> &nbsp;{count}&nbsp; </span>
+          <button
+            className="btn btn-outline-secondary btn-sm  btn__counter" 
             onClick={handleIncrement}
+            disabled = {count == stock}
           >
             <AddIcon />
-          </span>
-          <span className="counter__total"> &nbsp;&nbsp;&nbsp; ($ {unPrice*counter} )</span>
+          </button>
+          <span className="counter__total"> &nbsp;&nbsp;&nbsp;&nbsp;Pedido:&nbsp; ($ {unPrice*count} )</span>
         </div>
       </div>
     </div>

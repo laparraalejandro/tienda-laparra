@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {useParams} from 'react-router-dom';
 
-import { Container, CardColumns } from 'react-bootstrap';
+import { Container, CardColumns, Card } from 'react-bootstrap';
 import "./ItemListContainer.scss";
 
 import Item from "./Item/Item";
@@ -43,7 +43,7 @@ const ItemListContainer = ({ greeting, ItemList }) => {
                         <Container fluid="sm">
                             <CardColumns className="justify-content-md-center">
                                 {displayItems.map(item => (
-                                    <Item item={item} key={item.id} className="" />
+                                        <Item item={item} key={item.id} className="" />
                                 ))}
                             </CardColumns>
                         </Container>}

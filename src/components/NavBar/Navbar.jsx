@@ -26,7 +26,9 @@ const NavBar = (props) => {
               )};
             </Nav>
           </Navbar.Collapse>
-          <Button variant="dark" onClick={props.carrito}><CartIcon /></Button>
+          <Link to={'/cart'}>
+            <Button variant="dark" onClick={props.carrito}><CartIcon /></Button>
+          </Link>
         </Container>
       </Navbar>
     </>
