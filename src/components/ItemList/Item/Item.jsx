@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {Link} from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
+import {CartContext} from '../../../services/CartContext';
 
 import { Card, Button } from 'react-bootstrap';
 
@@ -14,18 +15,32 @@ const Item = ({ item }) => {
     const[finished, setFinished]=useState(false);
     const handleState = () => setFinished(!finished);
 
+    //Cart
+    const { cart, addToCart, removeFromCart, isntInCart } = useContext(CartContext);
+    const handleSend = () => {
+        addToCart({ ...item, quantity: count });
+    }
+    const checkInCart = () => {
+        if (isntInCart(item)) {
+            handleState();
+        }
+    }
+    const handleRemove = () => {
+        removeFromCart(item);
+    }
+
     return (
         <>
             <Card style={{ width: '18rem' }}>
-                <Link to={`/item/${item.id}`} class="itemDetail__override">
+                <Link to={`/item/${item.id}`} >
                     <Card.Img variant="top" src={window.location.origin + item.img[0]} />
                 </Link>
                 {!finished ? (
                     <>
 
                         <Card.Body>
-                            <Card.Title class="itemDetail__override">{item.name + " " + item.brand}</Card.Title>
-                            <Card.Text class="itemDetail__override">
+                            <Card.Title >{item.name + " " + item.brand}</Card.Title>
+                            <Card.Text >
                                 {item.shortDescription + (item.gender ? " (" + item.gender + ")" : "")}
                             </Card.Text>
                             <Card.Text>
@@ -34,7 +49,7 @@ const Item = ({ item }) => {
                             <Card.Text>
                                 Stock: {item.stock}
                             </Card.Text>
-                            <Button variant="primary" onClick={handleState}>Comprar </Button>
+                            <Button variant="primary" onClick={()=>{checkInCart();handleSend();}}>Comprar </Button>
                         </Card.Body>
                         <Card.Footer>
                             <small className="text-muted"><ItemCount initial={1} count={count} setCount={setCount} stock={parseInt(item.stock)} unPrice={parseInt(item.price)} /></small>
@@ -54,7 +69,7 @@ const Item = ({ item }) => {
                                 <Button variant="primary" onClick={handleState}>Terminar </Button>
                             </Link>
                             &nbsp;&nbsp;
-                            <Button variant="primary" onClick={handleState}>Modificar </Button>
+                            <Button variant="primary" onClick={()=>{handleState();handleRemove();}}>Modificar </Button>
                         </Card.Body>
                     </>
                 )}

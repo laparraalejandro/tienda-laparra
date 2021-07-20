@@ -15,42 +15,51 @@ import ItemListContainer from "./components/ItemList/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetail/ItemDetailContainer";
 import Footer from "./components/Footer/Footer";
 
+//CONTEXT
+import {CartProvider} from "./services/CartContext";
+
 //DUMMY DATA
 import Data from "./components/data/data.json"
-import CartIcon from './components/CartIcon/CartIcon';
-
 
 function App() {
 
+  //APP DATA
+  const greeting = "Tienda Deportiva";
+  const github ="https://www.linkedin.com/in/alejandro-laparra-1a673850/";
+  const linkedin ="https://www.linkedin.com/in/alejandro-laparra-1a673850/";
+  const author ="Alejandro Laparra";
+
   return (
     <>
-      <div className="App">
-        <BrowserRouter>
-          <NavBar
-            nombreDeLaTienda="Sport Market"
-            categorias={Data.categoriesArray}
-          />
-          <Switch>
-            <Route exact path="/">
-              <ItemListContainer greeting="bienvenido" ItemList={Data.itemsArray}/>
-            </Route>
-            <Route path="/category/:id">
-              <ItemListContainer greeting="bienvenido" ItemList={Data.itemsArray}/>
-            </Route>
-            <Route path="/item/:id">
-              <ItemDetailContainer ItemList={Data.itemsArray}/>
-            </Route>
-            <Route path="/cart">
-              <Cart/>
-            </Route>
-          </Switch>
-          <Footer
-            github="https://www.linkedin.com/in/alejandro-laparra-1a673850/"
-            linkedin="https://www.linkedin.com/in/alejandro-laparra-1a673850/"
-            author="Alejandro Laparra"
-          />
-        </BrowserRouter>
-      </div>
+      <CartProvider>
+        <div className="App">
+          <BrowserRouter>
+            <NavBar
+              nombreDeLaTienda="Sport Market"
+              categorias={Data.categoriesArray}
+            />
+            <Switch>
+              <Route exact path="/">
+                <ItemListContainer greeting={greeting} ItemList={Data.itemsArray} />
+              </Route>
+              <Route path="/category/:id">
+                <ItemListContainer greeting={greeting} ItemList={Data.itemsArray} />
+              </Route>
+              <Route path="/item/:id">
+                <ItemDetailContainer ItemList={Data.itemsArray} />
+              </Route>
+              <Route path="/cart">
+                <Cart />
+              </Route>
+            </Switch>
+            <Footer
+              github={github}
+              linkedin={linkedin}
+              author={author}
+            />
+          </BrowserRouter>
+        </div>
+      </CartProvider>
     </>
   );
 }
