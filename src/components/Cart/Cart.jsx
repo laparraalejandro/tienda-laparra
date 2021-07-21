@@ -14,7 +14,7 @@ const Cart = () => {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
-
+ 
     const{cart, removeFromCart, totalCart }=useContext(CartContext);
     const handleRemove=(cartItem)=>{
         removeFromCart(cartItem);
