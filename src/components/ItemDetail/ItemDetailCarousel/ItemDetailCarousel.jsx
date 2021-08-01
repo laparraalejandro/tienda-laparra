@@ -13,7 +13,7 @@ const ItemDetailCarousel = ({ item }) => {
                         <div class="carousel__img__container">
                             <img
                                 class="carousel__img"
-                                src={window.location.origin+image}
+                                src={image}
                                 alt="First slide"
                             />
                         </div>

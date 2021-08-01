@@ -36,7 +36,6 @@ function App() {
           <BrowserRouter>
             <NavBar
               nombreDeLaTienda="Sport Market"
-              categorias={Data.categoriesArray}
             />
             <Switch>
               <Route exact path="/">

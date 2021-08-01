@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {useParams} from 'react-router-dom';
+import { getFirestore } from "../../firebase/firebase";
 
 import "./ItemDetailContainer.scss";
 import { Container, Row, Col } from 'react-bootstrap';
@@ -8,28 +9,31 @@ import ItemDetail from "./ItemDetail/ItemDetail"
 import Loader from "../Loader/Loader";
 
 
-const ItemDetailContainer = ({ItemList}) => {
+const ItemDetailContainer = () => {
 
-    const itemsArray = ItemList;
+    const [item, setItem] = useState();
+    const [loading, setLoading] = useState(false);
+    const {id: idParams}=useParams();
 
-    const[itemToDisplay, setItemToDisplay] = useState();
+    useEffect(() => {
+        setLoading(true);
+        setItem();
+        const db = getFirestore();
 
-    const{id: idParams}=useParams();
-
-    const getSelectedItem = () => {
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(itemsArray.find((itemAIterar) => itemAIterar.id.toString() == idParams));
-            }, 2000);
-        });
-    };
-
-    useEffect(()=>{
-            setItemToDisplay();
-            getSelectedItem().then((result)=>setItemToDisplay(result));
-        },
-        [idParams]
-    );
+        db.collection("itemsArray").doc(idParams).get()
+            .then((querySnapshot) => {
+                if (querySnapshot.size === 0) {
+                    console.log("No results!");
+                }
+                setItem({id:idParams, ...querySnapshot.data()});
+            })
+            .catch((error) => {
+                console.log("Error searching item", error);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    }, [idParams]);
 
     return (
         <>
@@ -38,7 +42,7 @@ const ItemDetailContainer = ({ItemList}) => {
                     <Row className="justify-content-md-center">
                         <Col md="auto">
                             <div>
-                                {!itemToDisplay ? <Loader /> : <ItemDetail item={itemToDisplay} />}
+                                {loading ? <Loader /> : <ItemDetail item={item} />}
                             </div>
                         </Col>
                     </Row>

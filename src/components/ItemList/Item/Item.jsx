@@ -33,9 +33,9 @@ const Item = ({ item }) => {
         <>
             <Card style={{ width: '18rem' }}>
                 <Link to={`/item/${item.id}`} >
-                    <Card.Img variant="top" src={window.location.origin + item.img[0]} />
+                    <Card.Img variant="top" src={item.img[0]} />
                 </Link>
-                {!finished ? (
+                {!finished ? ( 
                     <>
 
                         <Card.Body>

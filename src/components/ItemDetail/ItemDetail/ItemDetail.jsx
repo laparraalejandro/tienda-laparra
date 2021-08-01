@@ -7,21 +7,10 @@ import "./ItemDetail.scss";
 
 import ItemCount from "../../ItemList/Item/ItemCount";
 import ItemDetailCarousel from "../ItemDetailCarousel/ItemDetailCarousel"
+import Loader from "../../Loader/Loader";
 
 
 const ItemDetail = ({ item }) => {
-
-    //Items
-    const itemToShow = item;
-    const [displayItems, setDisplayItems] = useState([]);
-    const getItems = ()=>{
-        return new Promise((resolve, reject)=>{
-            setTimeout(() => {
-                resolve(itemToShow);
-            }, 2000);
-        })
-    }
-    getItems().then((result)=>setDisplayItems(result));
 
     //Count
     const[count, setCount]=useState(1);
@@ -45,6 +34,7 @@ const ItemDetail = ({ item }) => {
     return (
         <>
             <Container>
+            {!item? (<Loader/>):(
                 <Card style={{ width: '26rem' }}>
                     <ItemDetailCarousel item={item}></ItemDetailCarousel>
                     {!finished ? (
@@ -88,6 +78,7 @@ const ItemDetail = ({ item }) => {
                         </>
                     )}
                 </Card>
+            )}
             </Container>
         </>
     );

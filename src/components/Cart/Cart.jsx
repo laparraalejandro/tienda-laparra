@@ -35,7 +35,7 @@ const Cart = () => {
                                     <ListGroup.Item>
                                         <DeleteRoundedIcon onClick={()=>{handleRemove(cartItem);}}/>
                                         &nbsp;&nbsp;{cartItem.name+" ("+cartItem.quantity+") -- $ "+parseInt(cartItem.price)*cartItem.quantity}
-                                        <Card.Img style={{ width: '5rem', float:'right' }} variant="top" src={window.location.origin + cartItem.img[0]} />
+                                        <Card.Img style={{ width: '5rem', float:'right' }} variant="top" src={cartItem.img[0]} />
                                     </ListGroup.Item>
                                 ))}
                                 <ListGroup.Item>Total : $ {totalCart()}</ListGroup.Item>
