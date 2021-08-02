@@ -34,7 +34,7 @@ const ItemListContainer = ({ greeting }) => {
                 }
                 setItems(
                     querySnapshot.docs.map((doc) => {
-                        return { id: doc.id, ...doc.data() };
+                            return { id: doc.id, ...doc.data() };
                     })
                 );
             })
@@ -45,21 +45,21 @@ const ItemListContainer = ({ greeting }) => {
                 setLoading(false);
             });
     }, [catParams]);
-
+ 
     return (
         <>
             <main className="home">
                 <div className="home__title">
                     <h1>{greeting}</h1>
                     <div>
-                        {loading?<Loader/>:
-                        <Container fluid="sm">
-                            <CardColumns className="justify-content-md-center">
-                                {items.map(item => (
-                                        <Item item={item} key={item.id} className="" />
-                                ))}
-                            </CardColumns>
-                        </Container>}
+                        {loading ? <Loader /> :
+                            <Container fluid="sm">
+                                <CardColumns className="justify-content-md-center">
+                                    {items.map(item => (
+                                        <Item item={item} key={item.id} />
+                                    ))}
+                                </CardColumns>
+                            </Container>}
                     </div>
                 </div>
             </main>

@@ -11,6 +11,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 //PAGES AND COMPONENTS
 import NavBar from "./components/NavBar/Navbar";
 import Cart from "./components/Cart/Cart";
+import Checkout from "./components/Cart/Form";
 import ItemListContainer from "./components/ItemList/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetail/ItemDetailContainer";
 import Footer from "./components/Footer/Footer";
@@ -46,6 +47,9 @@ function App() {
               </Route>
               <Route path="/item/:id">
                 <ItemDetailContainer ItemList={Data.itemsArray} />
+              </Route>
+              <Route path="/checkout">
+                <Checkout/>
               </Route>
               <Route path="/cart">
                 <Cart />

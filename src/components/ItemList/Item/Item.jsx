@@ -4,10 +4,11 @@ import { useLocation } from 'react-router-dom'
 import {CartContext} from '../../../services/CartContext';
 
 import { Card, Button } from 'react-bootstrap';
+import "./Item.scss";
 
 import ItemCount from "./ItemCount";
 
-//+ "/100px180"
+
 
 const Item = ({ item }) => {
 
@@ -31,7 +32,9 @@ const Item = ({ item }) => {
 
     return (
         <>
-            <Card style={{ width: '18rem' }}>
+        {item.stock <=0 ? (<></>):(
+            <>
+            <Card style={{ width: '18rem' }} className="card">
                 <Link to={`/item/${item.id}`} >
                     <Card.Img variant="top" src={item.img[0]} />
                 </Link>
@@ -74,6 +77,8 @@ const Item = ({ item }) => {
                     </>
                 )}
             </Card>
+            </>
+        )}    
         </>
     );
 };
@@ -81,3 +86,7 @@ const Item = ({ item }) => {
 
 
 export default Item;
+
+
+
+

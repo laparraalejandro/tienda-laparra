@@ -8,7 +8,6 @@ import CartIcon from "../CartIcon/CartIcon";
 import { Spinner,Navbar, Nav, Container, Button } from 'react-bootstrap';
 
 
-
 const NavBar = (props) => {
 
   const [categories, setCategories] = useState([]);
@@ -46,7 +45,7 @@ const NavBar = (props) => {
           <Navbar.Toggle aria-controls='responsive-navbar-nav' />
           <Navbar.Collapse id='responsive-navbar-nav'>
             <Link to={'/'}>
-              <Navbar.Brand href="#home">{props.nombreDeLaTienda}</Navbar.Brand>
+              <Navbar.Brand href="#home"><img src={window.location.origin + "/img/store-logo-2.png"} alt="" />&nbsp;&nbsp;{props.nombreDeLaTienda}</Navbar.Brand>
             </Link>
             {!loading ? (
             <Nav className="mr-auto">
@@ -54,7 +53,7 @@ const NavBar = (props) => {
                 <LinkContainer to={`/category/${cat.id}`} key={cat.id}>
                   <Nav.Link >{cat.name}</Nav.Link>
                 </LinkContainer>
-              )};
+              )}
             </Nav>
             ) : (
                 <Nav className="mr-auto">

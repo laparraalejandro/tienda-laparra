@@ -20,8 +20,6 @@ const Cart = () => {
         removeFromCart(cartItem);
     }
 
-    const hasPagado = ()=>{alert("HAS PAGADO!")};
-
     return (
         <>
             <main className="home">
@@ -40,7 +38,9 @@ const Cart = () => {
                                 ))}
                                 <ListGroup.Item>Total : $ {totalCart()}</ListGroup.Item>
                                 <ListGroup.Item>
-                                    <Button onClick={()=>{hasPagado();}}>PAGAR</Button>
+                                    <Link to={'/checkout'}>
+                                        <Button>PAGAR</Button>
+                                    </Link>
                                     <Link to={'/'}>
                                         &nbsp;&nbsp;<Button>SEGUIR COMPRANDO</Button>
                                     </Link>
