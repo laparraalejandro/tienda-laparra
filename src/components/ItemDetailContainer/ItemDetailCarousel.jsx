@@ -1,29 +1,26 @@
 import React from "react";
-import { useLocation } from 'react-router-dom'
-
 import { Carousel } from 'react-bootstrap';
-import "./ItemDetailCarousel.scss";
+import "./ItemDetail.css";
 
 const ItemDetailCarousel = ({ item }) => {
     return (
         <>
-            <Carousel>
-                {item.img.map(image => (
+            <Carousel variant="dark">
+
                     <Carousel.Item interval={1000}>
-                        <div class="carousel__img__container">
+                        <div class="ListItem-img">
                             <img
-                                class="carousel__img"
-                                src={image}
+                                class='img-fluid w-100'
+                                src={item.imgURL}
                                 alt="First slide"
                             />
                         </div>
                     </Carousel.Item>
-                ))}
+
             </Carousel>
         </>
     );
 };
-
 
 export default ItemDetailCarousel;
 

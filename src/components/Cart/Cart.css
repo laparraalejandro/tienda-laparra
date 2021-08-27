@@ -1,0 +1,35 @@
+@media (min-width: 900px) {
+    .Cart-table {
+        width: 55%;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+        min-height: 70vh;
+    }
+
+    .Cart-table-img {
+        min-height: 10vh;
+        width: 10rem;
+        float: right;
+    }
+}
+
+@media (max-width: 600px) {
+    .Cart-table-img {
+        width: 5rem;
+        float: right;
+    }
+
+    .Cart-Buttons{
+        font-size:13px;
+    }
+
+    .Cart-Empty-img{
+        width: 100%;
+    }
+}
+
+.Cart-Empty-container{
+    display: flex;
+    align-items: center;
+}

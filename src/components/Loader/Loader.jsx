@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Spinner, Container, Card, Row, Col } from 'react-bootstrap';
 
-const NavBar = (props) => {
+const Loader = (props) => {
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -10,7 +10,7 @@ const NavBar = (props) => {
     return (
         <>
             <main className="home">
-                <Container fluid center>
+                <Container fluid center className="p-4">
                     <Row className="justify-content-md-center">
                         <Col md="auto">
                             <Card style={{ width: '30rem' }}>
@@ -34,4 +34,4 @@ const NavBar = (props) => {
     )
 };
 
-export default NavBar;
+export default Loader;

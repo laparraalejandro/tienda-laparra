@@ -1,72 +1,35 @@
-import React, {useState, useEffect, useContext} from 'react';
-import { useLocation } from 'react-router-dom';
-import {CartContext} from '../../services/CartContext';
-import {Link} from 'react-router-dom'
+import React, { useEffect, useState  } from "react";
+import ApplyLoader from "../Loader/ApplyLoader";
+import CartTable from "./CartTable";
+import CartEmpty from "./CartEmpty";
+import { useCartContext } from "../../context/CartContext";
+import { useGeneralDataContext } from "../../context/GeneralContext";
+import { Container} from 'react-bootstrap';
 
-import { Container, Card, ListGroup, Button} from 'react-bootstrap';
-import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
-import "./Cart.scss";
+const Cart = ApplyLoader(({ visibility }) => {
+  const { showLoader, hideLoader } = useGeneralDataContext();
+  const { hasItemsInCart } = useCartContext();
 
+  const delayLoad = () => {
+    showLoader();
+    setTimeout(() => hideLoader(), 500);
+  };
 
+  useEffect(delayLoad, [showLoader, hideLoader]);
 
-const Cart = () => {
-
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
- 
-    const{cart, removeFromCart, totalCart }=useContext(CartContext);
-    const handleRemove=(cartItem)=>{
-        removeFromCart(cartItem);
-    }
-
-    return (
+  return (
+    <Container fluid center className={`container p-4 ${visibility}`}>
+      {hasItemsInCart() ? (
         <>
-            <main className="home">
-                <Container fluid center style={{ minHeight: '350px' }}>
-                    <div class="row justify-content-md-center">
-                        {!(cart.length==0) ? (
-                        <Card style={{ width: '26rem' }}>
-                            <Card.Header>Items en el Carrito:</Card.Header>
-                            <ListGroup variant="flush">
-                                {cart.map(cartItem => (
-                                    <ListGroup.Item>
-                                        <DeleteRoundedIcon onClick={()=>{handleRemove(cartItem);}}/>
-                                        &nbsp;&nbsp;{cartItem.name+" ("+cartItem.quantity+") -- $ "+parseInt(cartItem.price)*cartItem.quantity}
-                                        <Card.Img style={{ width: '5rem', float:'right' }} variant="top" src={cartItem.img[0]} />
-                                    </ListGroup.Item>
-                                ))}
-                                <ListGroup.Item>Total : $ {totalCart()}</ListGroup.Item>
-                                <ListGroup.Item>
-                                    <Link to={'/checkout'}>
-                                        <Button>PAGAR</Button>
-                                    </Link>
-                                    <Link to={'/'}>
-                                        &nbsp;&nbsp;<Button>SEGUIR COMPRANDO</Button>
-                                    </Link>
-                                </ListGroup.Item>
-                            </ListGroup>
-                        </Card>
-                        ) : (
-                        <Card style={{ width: '26rem' }}>
-                            <Card.Header>El carrito esta vacio</Card.Header>
-                            <ListGroup variant="flush">
-                                <ListGroup.Item>
-                                    <Link to={'/'}>
-                                        <Button>VOLVER A LA TIENDA</Button>
-                                    </Link>
-                                </ListGroup.Item>
-                            </ListGroup>
-                        </Card>
-                        )}
-                    </div>
-                </Container>
-            </main>
+          <CartTable />
         </>
-    );
-};
-
+      ) : (
+        <>
+          <CartEmpty />
+        </>
+      )}
+      </Container>
+  );
+});
 
 export default Cart;
-
-

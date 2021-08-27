@@ -1,69 +1,51 @@
-
-import './App.css';
-
-//ROUTES
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import React from "react";
 
 //STYLES
+import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-import CssBaseline from "@material-ui/core/CssBaseline";
 
-//PAGES AND COMPONENTS
-import NavBar from "./components/NavBar/Navbar";
+//COMPONENTS
+import NavBar from "./components/NavBar/NavBar";
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import Cart from "./components/Cart/Cart";
-import Checkout from "./components/Cart/Form";
-import ItemListContainer from "./components/ItemList/ItemListContainer";
-import ItemDetailContainer from "./components/ItemDetail/ItemDetailContainer";
+import BuyFormContainer from "./components/BuyForm/BuyFormContainer";
 import Footer from "./components/Footer/Footer";
 
-//CONTEXT
-import {CartProvider} from "./services/CartContext";
+//ROUTER-CONTEXT
+import { Route, Switch, BrowserRouter } from "react-router-dom";
+import CartContext from "./context/CartContext";
+import GeneralContext from "./context/GeneralContext";
 
-//DUMMY DATA
-import Data from "./components/data/data.json"
+//APP DATA
+const storeName = "Sport Store";
+const github = "https://www.linkedin.com/in/alejandro-laparra-1a673850/";
+const linkedin = "https://www.linkedin.com/in/alejandro-laparra-1a673850/";
+const author = "Alejandro Laparra";
+
 
 function App() {
-
-  //APP DATA
-  const greeting = "Tienda Deportiva";
-  const github ="https://www.linkedin.com/in/alejandro-laparra-1a673850/";
-  const linkedin ="https://www.linkedin.com/in/alejandro-laparra-1a673850/";
-  const author ="Alejandro Laparra";
-
   return (
-    <>
-      <CartProvider>
-        <div className="App">
-          <BrowserRouter>
-            <NavBar
-              nombreDeLaTienda="Sport Market"
-            />
+    <div className="App">
+      <BrowserRouter>
+        <CartContext>
+          <GeneralContext>
+            <NavBar storeName={storeName}/>
             <Switch>
-              <Route exact path="/">
-                <ItemListContainer greeting={greeting} ItemList={Data.itemsArray} />
-              </Route>
-              <Route path="/category/:id">
-                <ItemListContainer greeting={greeting} ItemList={Data.itemsArray} />
-              </Route>
-              <Route path="/item/:id">
-                <ItemDetailContainer ItemList={Data.itemsArray} />
-              </Route>
-              <Route path="/checkout">
-                <Checkout/>
-              </Route>
-              <Route path="/cart">
-                <Cart />
-              </Route>
+              <Route exact path={["/", "/category/:categoryName"]} component={ItemListContainer} />
+              <Route exact path="/product/:productID" component={ItemDetailContainer} />
+              <Route exact path="/cart" component={Cart} />
+              <Route exact path="/ckeckout" component={BuyFormContainer} />
             </Switch>
             <Footer
               github={github}
               linkedin={linkedin}
               author={author}
             />
-          </BrowserRouter>
-        </div>
-      </CartProvider>
-    </>
+          </GeneralContext>
+        </CartContext>
+      </BrowserRouter>
+    </div>
   );
 }
 
