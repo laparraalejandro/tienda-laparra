@@ -7,8 +7,12 @@ const NavbarCategories = ({ categories }) => {
     <>
       <Nav className="mr-auto">
         {categories.map(({ id, title }) => (
-          <LinkContainer to={`/category/${title}`} key={id}>
-            <Nav.Link >{title}</Nav.Link>
+          <LinkContainer
+            to={`/category/${title}`}
+            key={id}>
+            <Nav.Link >
+              {title}
+            </Nav.Link>
           </LinkContainer>
         ))}
       </Nav>

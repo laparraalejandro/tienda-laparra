@@ -53,7 +53,7 @@ The tools used for creating this Project are the following:
 
 ### Detail Section
 
-- This is the section where the extended description of the product is shown, along with different pictures of the same item.
+- This is the section where the extended description of the product is shown
 - On this section you may select how many items you wish to buy. The allowed purchase is limited by the existing stock of the item, which is automatically updated each time a successful buy is performed.
 -You may also edit you order from this section, whenever you wished to change the number of items to buy, selecting the “actualizar order” option.
 -Once your order has been confirmed, you´ll be redirected to the shopping cart

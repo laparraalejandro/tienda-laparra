@@ -3,7 +3,6 @@ import ItemCount from "../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
 import { Container, Card, Button} from 'react-bootstrap';
-import ItemDetailCarousel from "./ItemDetailCarousel";
 
 const ItemDetail = ({ item }) => {
   const [count, setCount] = useState(1);
@@ -21,13 +20,19 @@ const ItemDetail = ({ item }) => {
   return (
     <>
       <Container className="container d-flex p-2">
-      <div class="row">
-        <Card >
-              <ItemDetailCarousel item={item}/>
-          <Card.Body>
-            <Card.Title 
-               className="text-center">
-              {item.title}
+        <div class="row">
+          <Card >
+            <div class="ListItem-img">
+              <img
+                class='img-fluid w-100'
+                src={item.imgURL}
+                alt="First slide"
+              />
+            </div>
+            <Card.Body>
+              <Card.Title
+                className="text-center">
+                {item.title}
             </Card.Title>
             <Card.Text>
               {item.description}

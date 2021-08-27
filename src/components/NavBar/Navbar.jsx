@@ -18,19 +18,32 @@ const NavBar = (appData) => {
 
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" fixed='top' bg="dark" variant="dark">
+      <Navbar
+        collapseOnSelect
+        expand="lg"
+        fixed='top'
+        bg="dark"
+        variant="dark">
         <Container>
-          <Navbar.Toggle aria-controls='responsive-navbar-nav' />
+          <Navbar.Toggle
+            aria-controls='responsive-navbar-nav' />
           <Navbar.Collapse id='responsive-navbar-nav'>
             <Link to={'/'}>
-              <Navbar.Brand href="#home"><img src={logo} alt="" />&nbsp;&nbsp;{appData.storeName}</Navbar.Brand>
+              <Navbar.Brand href="#home">
+                <img src={logo} alt="" />
+                &nbsp;&nbsp;{appData.storeName}
+              </Navbar.Brand>
             </Link>
-            <Nav className="mr-auto">
+            <Nav
+              className="mr-auto">
               {categories && <NavbarCategories categories={categories} />}
             </Nav>
           </Navbar.Collapse>
           <Link to={'/cart'}>
-            <Button variant="dark"><CartWidget /></Button>
+            <Button
+              variant="dark">
+              <CartWidget />
+            </Button>
           </Link>
         </Container>
       </Navbar>
