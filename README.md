@@ -12,7 +12,7 @@ The resulting website is a template for a real sports store, with build in funct
     alt="animated GIF where some of the functionalities of the site are shown"
     with="350" 
     height="350" 
-    src="" 
+    src="https://giphy.com/gifs/LU5RpXx4vfKao0xUop/fullscreen" 
   />
   <figcaption>animated GIF where some of the functionalities of the site are shown</figcaption>
 </figure>
