@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# React JS developer Course - Coderhouse
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About this project
 
-## Available Scripts
+The following project is an E-commerce platform composed by all the modules developed during the course <br>
 
-In the project directory, you can run:
 
-### `npm start`
+The resulting website is a template for a real sports store, with build in functionalities that allows for a basic shopping experience. Because of modular design of the application and the emphasis given on the principles of separate responsibilities for each one of the functionalities, any of the existing features can be customize to the client’s requirements without compromising the rest. These characteristics allow for a more scalable application, granting the possibility to build add-ons over the existing logic to expand in new functionalities. It´s user friendly design, achieved with the react-bootstrap library, makes for an easier reading and editing than pure HTML, thus making the visual design of the site something very easy and quick to maintain. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<figure style="text-align: center">
+   <img 
+    alt="animated GIF where some of the functionalities of the site are shown"
+    with="350" 
+    height="350" 
+    src="" 
+  />
+  <figcaption>animated GIF where some of the functionalities of the site are shown</figcaption>
+</figure>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<hr>
 
-### `npm test`
+## Utilized Tools
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The tools used for creating this Project are the following:
 
-### `npm run build`
+- React JS (main js library)
+- Firebase (storage-backend)
+- React Bootstrap (main CSS Framework)
+- React Router Dom (browsing).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<hr>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project installation and setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone the existing repository using the gitbash command:  _`git clone https://github.com/laparraalejandro/tienda-laparra.git`_
+2.  Install all the Project dependencies using the commnad:
+   _`npm install` (you may also use `npm i`)_
+3. Launch the Project using the command: _`npm start`_
 
-### `npm run eject`
+<hr>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Project Features
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Navbar
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Allows for navigation between different product categories, filtering the corresponding items accordingly
+- Displays the Cart Widget with the number of items already in the cart
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Main section
 
-## Learn More
+- Display of all the products on the store, or only those already filtered by category, accoding to the case. 
+- On clicking any item on display you´ll be automatically redirected to the item´s details.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Detail Section
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- This is the section where the extended description of the product is shown, along with different pictures of the same item.
+- On this section you may select how many items you wish to buy. The allowed purchase is limited by the existing stock of the item, which is automatically updated each time a successful buy is performed.
+-You may also edit you order from this section, whenever you wished to change the number of items to buy, selecting the “actualizar order” option.
+-Once your order has been confirmed, you´ll be redirected to the shopping cart
 
-### Code Splitting
+### Shopping Cart
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- A simple and intuitive display of all the items added to the shopping cart, along with the respective number of each of the items, their price, and total amount of the order
+- This section includes functionalities to remove any and all items from the cart, resume shopping, and finished the purchase 
 
-### Analyzing the Bundle Size
+### Buy Form
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- On this final feature you must provide your personal data to validate and register your purchase. 
+- Once your data has been submitted you´ll be notified of the operation’s state.
+  - In case your operation fails, you´ll be notified and your shopping cart will be updated if necessary with the correct number of elements on stock
+  - If the operation is successful, you´ll be notified and granted your Order´s Id 
