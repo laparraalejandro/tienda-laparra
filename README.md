@@ -14,7 +14,7 @@ The resulting website is a template for a real sports store, with build in funct
     height="350" 
     src="https://firebasestorage.googleapis.com/v0/b/tienda-laparra-react-1.appspot.com/o/1.png?alt=media&token=b1de3006-f8e4-4c9e-8aea-1c48db43f21f" 
   />
-  <figcaption>animated GIF where some of the functionalities of the site are shown</figcaption>
+  <figcaption>captures where some of the functionalities of the site are shown</figcaption>
 </figure>
 
 <hr>
